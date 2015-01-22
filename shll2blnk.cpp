@@ -11,10 +11,14 @@ using namespace std;
 void setup(char inputBuffer[],char *argv[])
 {
 	int i,j;
-	char *p;
+	char *p=(char*)malloc(MAXLINE*sizeof(char));
 	i=0;
 	for (p=inputBuffer; ;p++)
 	{
+		while(*p==' ')
+		{
+			p++;
+		}
 		argv[i++]=p;
 		while (*p!=' '&&*p!='\0')
 			p++;
@@ -27,14 +31,10 @@ void setup(char inputBuffer[],char *argv[])
 	pid=fork();
 	if (pid==0)
 	{
-		if(execvp(argv[0],argv)!=0)
+		if(execvp(argv[0],argv)!=0)//else is no used, even if succeed, 
 		{
 			perror("execvp fail");
 			exit(1);
-		}
-		else
-		{
-			printf("Command accept\n");
 		}
 	}
 	else
