@@ -18,7 +18,7 @@ int setup(char inputBuffer[])
 	i=0;
 	for (p=inputBuffer; ;p++)
 	{
-		while(*p==' ')
+		while(*p==' '||*p=='\t')
 		{
 			p++;
 		}
@@ -26,13 +26,13 @@ int setup(char inputBuffer[])
 			break;
 		//argv[i]=(char*)malloc((MAXLINE/2-1)*sizeof(char));
 		argv[i++]=p;
-		while (*p!=' '&&*p!='\0')
+		while (*p!=' '&&*p!='\0'&&*p!='\t')
 			p++;
 		if(*p=='\0')
 			break;
 		*p='\0';
 		p++;
-		while(*p==' ')
+		while(*p==' '||*p=='\t')
 		{
 			p++;
 		}
@@ -153,6 +153,14 @@ int and_or(char* inputBuffer)
 					p=q;
 					break;
 				}
+				else
+				{
+					flag[i];
+					--q;
+					*q='\0';
+					p=q;
+					break;
+				}
 			}
 			else if(*q=='|')
 			{
@@ -161,6 +169,14 @@ int and_or(char* inputBuffer)
 					flag[i]=1;
 					*q=' ';
 					*(--q)='\0';
+					p=q;
+					break;
+				}
+				else
+				{
+					flag[i];
+					--q;
+					*q='\0';
 					p=q;
 					break;
 				}
