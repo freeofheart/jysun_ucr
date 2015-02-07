@@ -1,0 +1,15 @@
+ok:
+A -a
+A testcase -a
+A testcase ls3.cpp -a
+A tst1/ -a
+A -a  tst1  
+
+#A tst1/ z/ -a
+A tst1 -a z 
+A -aaaaa tst1 -aaa z/  -aa
+A -a tst1/ -a z -aa
+
+next:
+A tst1 ex1
+A tst1 ex1 ex1.cpp z
